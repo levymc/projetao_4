@@ -1,36 +1,27 @@
-const cards = document.querySelectorAll('.card'); // Seleciona todos os elementos com a classe "card"
-
-// function getRandomImage() {
-//     const min = 1; // Número mínimo da imagem
-//     const max = 8; // Número máximo da imagem
-//     const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min; // Gera um número aleatório entre 1 e 8
-//     const imageName = randomNumber + '.png'; // Monta o nome do arquivo de imagem
-//     return 'img/' + imageName; // Retorna o caminho completo da imagem
-// }
-
-// function flipCard() {
-//     const randomImage = getRandomImage(); // Obtém um caminho aleatório de imagem
-//     const cardImage = this.querySelector('img'); // Seleciona a imagem dentro do cartão atual
-//     cardImage.setAttribute('src', randomImage); // Define o atributo "src" da imagem para o caminho aleatório
-// }
-
-// cards.forEach(card => {
-//     card.addEventListener('click', flipCard); // Adiciona um ouvinte de eventos de clique para cada cartão
-// });
-
-
+const cards = document.querySelectorAll('.card');
 let flippedCards = [];
+let firstCard = null;
+let secondCard = null;
 
 cards.forEach(card => {
-    card.addEventListener('click', () => {
+    card.addEventListener('click', () => { //Espera clicar em algum card
         
         const randomNum = Math.floor(Math.random() * 8) + 1;
         const img = card.querySelector("img");
         
         if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
-            card.classList.add("flipped");
-            img.src = `img/${randomNum}.png`;
-            flippedCards.push(card);
+            if (!firstCard) {
+                firstCard = card;
+                card.classList.add("flipped");
+                img.src = `img/${randomNum}.png`;
+                flippedCards.push(card);
+            }
+            else if (!secondCard) {
+                secondCard = card;
+                card.classList.add("flipped");
+                img.src = `img/${randomNum}.png`;
+                flippedCards.push(card);
+            }
             
             if (flippedCards.length === 2) {
                 const firstCardImg = flippedCards[0].querySelector("img").src;
@@ -40,6 +31,8 @@ cards.forEach(card => {
                     flippedCards.forEach(card => {
                         card.removeEventListener("click");
                     });
+                    firstCard = null;
+                    secondCard = null;
                     flippedCards = [];
                 } else {
                     setTimeout(() => {
@@ -48,6 +41,8 @@ cards.forEach(card => {
                             card.querySelector("img").src = "img/back.png";
                         });
                         flippedCards = [];
+                        firstCard = null;
+                        secondCard = null;
                     }, 1000);
                 }
             }
@@ -58,3 +53,32 @@ cards.forEach(card => {
         }
     });
 });
+
+
+
+
+
+
+// cards.forEach(card => {
+//     card.addEventListener('click', () => {
+//         if (!firstCard) {
+//             firstCard = card;
+//             firstCard.children[0].classList.add('visible');
+//         } else if (!secondCard) {
+//             secondCard = card;
+//             secondCard.children[0].classList.add('visible');
+            
+//             if (firstCard.children[0].src === secondCard.children[0].src) {
+//                 firstCard = null;
+//                 secondCard = null;
+//             } else {
+//                 setTimeout(() => {
+//                     firstCard.children[0].classList.remove('visible');
+//                     secondCard.children[0].classList.remove('visible');
+//                     firstCard = null;
+//                     secondCard = null;
+//                 }, 1000);
+//             }
+//         }
+//     });
+// });
