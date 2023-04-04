@@ -76,13 +76,16 @@ function jogo(){
             const secondCardImg = flippedCards[1].querySelector("img").src;
                     
             if (firstCardImg == secondCardImg) {
+                setTimeout(() => {
+                    reiniciarJogo;
+                }, 1000);
                 alert("AEEE");
-                flippedCards.forEach(card => {
-                    card.removeEventListener("click");
-                });
-                firstCard = null;
-                secondCard = null;
-                flippedCards = [];
+                // flippedCards.forEach(card => {
+                //     card.removeEventListener("click");
+                // });
+                // firstCard = null;
+                // secondCard = null;
+                // flippedCards = [];
             } else {
                 setTimeout(() => {
                     flippedCards.forEach(card => {
