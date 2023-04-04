@@ -77,6 +77,9 @@ img {
     .container-superior{
         margin-bottom: 2.5em;
     }
+    .table{
+        width: 80%;
+    }
   }
 
 /* @media (max-width:768px){
