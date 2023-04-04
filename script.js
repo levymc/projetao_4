@@ -13,13 +13,13 @@ cards.forEach(card => {
             if (!firstCard) {
                 firstCard = card;
                 card.classList.add("flipped");
-                img.src = `img/${randomNum}.png`;
+                img.src = `img/${randomNum}.gif`;
                 flippedCards.push(card);
             }
             else if (!secondCard) {
                 secondCard = card;
                 card.classList.add("flipped");
-                img.src = `img/${randomNum}.png`;
+                img.src = `img/${randomNum}.gif`;
                 flippedCards.push(card);
             }
             
