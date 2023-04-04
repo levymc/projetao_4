@@ -17,6 +17,7 @@ html{
     margin-bottom: 1.5em;
 }
 #btn-restart{
+    opacity: 0;
     position: fixed;
     top: 6em;
     left: 1%;

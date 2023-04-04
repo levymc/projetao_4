@@ -1,12 +1,19 @@
+document.addEventListener('DOMContentLoaded', () => {
+    jogo();
+  });
+
 const btnRestart = document.querySelector('#btn-restart');
 
 btnRestart.addEventListener('click', reiniciarJogo);
 
 function reiniciarJogo() {
-  jogo()
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.remove());
+    jogo()
 }
 
 function jogo(){
+    btnRestart.style.opacity = "1";
     let numCartas;
     do {
     numCartas = prompt("Com quantas cartas você quer jogar? Insira um número par entre 4 e 14:");
