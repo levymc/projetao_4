@@ -76,12 +76,14 @@ function jogo(){
             const secondCardImg = flippedCards[1].querySelector("img").src;
                     
             if (firstCardImg === secondCardImg) {
-            flippedCards.forEach(card => {
-                card.removeEventListener("click");
-            });
-            firstCard = null;
-            secondCard = null;
-            flippedCards = [];
+                alert("AEEE");
+                flippedCards.forEach(card => {
+                    card.removeEventListener("click");
+                });
+                
+                firstCard = null;
+                secondCard = null;
+                flippedCards = [];
             } else {
             setTimeout(() => {
                 flippedCards.forEach(card => {
