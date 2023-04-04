@@ -2,6 +2,7 @@
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-size: 16px;
+    user-select:none;
 }
 html{
     background-color:#EEF9BF;
@@ -9,14 +10,16 @@ html{
 .container-superior{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
     text-align: center;
-    margin-bottom: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 .container-superior h1{
     font-weight: 700;
-    font-size: 56px;
-    line-height: 66px;
+    font-size: 36px;
+    line-height: 42px;
     letter-spacing: -0.004em;
     color: #75B79E;
 }
@@ -25,23 +28,31 @@ html{
     justify-content: center;
     align-items: center;
 }
-.table1{
-    width: 80%;
-    display: flex;
+.table{
+    width: 60%;
     border-collapse: collapse;
-}
-.row{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     gap: 2em
 }
 .card {
-	border: 2px solid black;
-	width: 100px;
-	height: 100px;
-	text-align: center;
+    border-radius: 5px;
+	width: 117px;
+	height: 146px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A7E9AF;
+    box-sizing: border-box;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
 }
-
+.card.flipped {
+    transform: rotateY(180deg);
+}
+  
 img {
 	width: 100px;
 	height: 100px;
@@ -51,25 +62,24 @@ img {
 	opacity: 0;
 	transition: opacity 0.5s;
 }
-.table2, .titulo2{
-	transition: opacity 0.5s;
-    display: none;
-}
 
-.visible, .table1, .titulo1 {
+.visible{
 	opacity: 1;
 	transition: opacity 0.5s;
 }
 
-/* @media screen and (min-width: 768px) {
-    .table1, .titulo1{
-        display: flex;
-        align-items: center;
-        justify-content: center;
+@media screen and (min-width: 768px) {
+    .container-superior h1{
+        font-size: 56px;
+        line-height: 66px;
+        letter-spacing: -0.004em;
     }
-  } */
+    .container-superior{
+        margin-bottom: 2.5em;
+    }
+  }
 
-@media (max-width:768px){
+/* @media (max-width:768px){
     .table2, .titulo2{
         display: flex;
         flex-direction: column;
@@ -79,4 +89,4 @@ img {
     .table1, .titulo1{
         display: none;
     }
-}
+} */
