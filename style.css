@@ -20,17 +20,22 @@ html{
     letter-spacing: -0.004em;
     color: #75B79E;
 }
-tr{
-    box-sizing: border-box;
-
-    border-spacing: 50em 0 !important;
+.container-principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-table {
+.table1{
+    width: 80%;
+    display: flex;
     border-collapse: collapse;
-    margin: auto;
-    border-spacing: 50em 0 !important;
 }
-td {
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em
+}
+.card {
 	border: 2px solid black;
 	width: 100px;
 	height: 100px;
