@@ -24,11 +24,11 @@ function jogo(){
     let contador = 1;
 
     for (let i = 0; i <= numCartas; i++) {
-    const newCard1 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*2}"></div>`;
-    const newCard2 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*4}"></div>`;
-    tableDiv.insertAdjacentHTML('beforeend', newCard1);
-    tableDiv.insertAdjacentHTML('beforeend', newCard2);
-    contador ++;
+        const newCard1 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*2}"></div>`;
+        const newCard2 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*4}"></div>`;
+        tableDiv.insertAdjacentHTML('beforeend', newCard1);
+        tableDiv.insertAdjacentHTML('beforeend', newCard2);
+        contador ++;
     }
 
     const cards = document.querySelectorAll('.card');
@@ -82,12 +82,12 @@ function jogo(){
                     reiniciarJogo;
                 }, 1000);
                 alert("AEEE");
-                // flippedCards.forEach(card => {
-                //     card.removeEventListener("click");
-                // });
-                // firstCard = null;
-                // secondCard = null;
-                // flippedCards = [];
+                flippedCards.forEach(card => {
+                    card.removeEventListener("click");
+                });
+                firstCard = null;
+                secondCard = null;
+                flippedCards = [];
             } else {
                 setTimeout(() => {
                     flippedCards.forEach(card => {
