@@ -75,25 +75,24 @@ function jogo(){
             const firstCardImg = flippedCards[0].querySelector("img").src;
             const secondCardImg = flippedCards[1].querySelector("img").src;
                     
-            if (firstCardImg === secondCardImg) {
+            if (firstCardImg == secondCardImg) {
                 alert("AEEE");
                 flippedCards.forEach(card => {
                     card.removeEventListener("click");
                 });
-                
                 firstCard = null;
                 secondCard = null;
                 flippedCards = [];
             } else {
-            setTimeout(() => {
-                flippedCards.forEach(card => {
-                card.classList.remove("flipped");
-                card.querySelector("img").src = "img/back.png";
-                });
-                flippedCards = [];
-                firstCard = null;
-                secondCard = null;
-            }, 1000);
+                setTimeout(() => {
+                    flippedCards.forEach(card => {
+                    card.classList.remove("flipped");
+                    card.querySelector("img").src = "img/back.png";
+                    });
+                    flippedCards = [];
+                    firstCard = null;
+                    secondCard = null;
+                }, 1000);
             }
         }
         } else if (card.classList.contains("flipped")) {
