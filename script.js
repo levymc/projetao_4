@@ -24,8 +24,8 @@ function jogo(){
     let contador = 1;
 
     for (let i = 0; i <= numCartas; i++) {
-    const newCard1 = `<div class="card"><img src="./img/back.png" data-name="${contador}" data-position="${contador*2}"></div>`;
-    const newCard2 = `<div class="card"><img src="./img/back.png" data-name="${contador}" data-position="${contador*4}"></div>`;
+    const newCard1 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*2}"></div>`;
+    const newCard2 = `<div data-test="card" class="card"><img src="./img/back.png" data-test="face-down-image" data-name="${contador}" data-position="${contador*4}"></div>`;
     tableDiv.insertAdjacentHTML('beforeend', newCard1);
     tableDiv.insertAdjacentHTML('beforeend', newCard2);
     contador ++;
@@ -55,9 +55,10 @@ function jogo(){
             card.classList.add("flipped");
             // Adiciona imagem aleatória apenas se a carta ainda não foi revelada antes
             if (!card.dataset.img) {
-            card.dataset.img = `img/${Math.floor(Math.random() * 8) + 1}.gif`;
+                card.dataset.img = `img/${Math.floor(Math.random() * 8) + 1}.gif`;
             }
             img.src = card.dataset.img;
+            img.setAttribute('data-test', 'face-up-image');
             flippedCards.push(card);
         }
         else if (!secondCard) {
@@ -68,6 +69,7 @@ function jogo(){
             card.dataset.img = `img/${Math.floor(Math.random() * 8) + 1}.gif`;
             }
             img.src = card.dataset.img;
+            img.setAttribute('data-test', 'face-up-image');
             flippedCards.push(card);
         }
         
