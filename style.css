@@ -1,6 +1,35 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+}
+html{
+    background-color:#EEF9BF;
+}
+.container-superior{
+    text-align: center;
+}
+.container-superior h1{
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 66px;
+    letter-spacing: -0.004em;
+    color: #75B79E;
+}
+.cards{
+    display: flex;
+    flex-direction: column; /* exibir imagens em uma única coluna no mobile */
+    flex-wrap: wrap; /* permitir que as imagens quebrem para uma nova linha */
+  }
+  
+  @media screen and (min-width: 768px) {
+    .image-container {
+      flex-direction: row; /* exibir imagens em duas linhas no desktop */
+    }
+  }
+
 table {
-	border-collapse: collapse;
-	margin: auto;
+border-collapse: collapse;
+margin: auto;
 }
 
 td {
