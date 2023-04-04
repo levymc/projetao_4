@@ -16,6 +16,19 @@ html{
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
+#btn-restart{
+    position: fixed;
+    top: 6em;
+    left: 1%;
+    border-radius: 5px;
+    background-color: aliceblue;
+    padding: 8px;
+}
+#btn-restart:hover{
+    cursor: pointer;
+    background-color: aqua;
+    transition: 0.5ms;
+}
 .container-superior h1{
     font-weight: 700;
     font-size: 36px;
