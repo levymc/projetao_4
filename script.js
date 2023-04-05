@@ -35,10 +35,12 @@ function jogo(){
     let cartasViradas = [];
     let firstCard = null;
     let secondCard = null;
+    let numJogadas = 0;
 
     cards.forEach(card => { // card é cada card dentro de cards
         card.addEventListener('click', () => { // espera clicar em algum card
             const img = card.querySelector("img");
+            numJogadas++;
                 
             if (cartasViradas.length < 2 && !card.classList.contains("flipped")) {
             if (!firstCard) { // se ainda nao existir primeira card
@@ -75,10 +77,12 @@ function jogo(){
                 const secondCardImg = cartasViradas[1].querySelector("img").src;
                         
                 if (firstCardImg == secondCardImg) { // ganhou
+                    
+                    alert(`Você ganhou em ${numJogadas/2} jogadas!`);
                     setTimeout(() => {
-                        reiniciarJogo;
+                        reiniciarJogo();
                     }, 1000); // espera 1sg
-                    alert("AEEE");
+                    // alert("AEEE");
                     cartasViradas.forEach(card => {
                         card.removeEventListener("click");
                     });
@@ -88,8 +92,8 @@ function jogo(){
                 } else { // cartas nao iguais
                     setTimeout(() => {
                         cartasViradas.forEach(card => {
-                        card.classList.remove("flipped");
-                        card.querySelector("img").src = "img/back.png";
+                            card.classList.remove("flipped");
+                            card.querySelector("img").src = "img/back.png";
                         });
                         cartasViradas = [];
                         firstCard = null;
