@@ -105,3 +105,46 @@ function jogo(){
         });
     });
 }
+
+
+// const cards = document.querySelectorAll('.card'); // Seleciona todos os elementos com a classe "card"
+// numCartas = prompt("Com quantas cartas você quer jogar? Insira um número par entre 4 e 14:");
+// let flippedCards = [];
+
+// cards.forEach(card => {
+//     card.addEventListener('click', () => {
+        
+//         const randomNum = Math.floor(Math.random() * numCartas/2) + 1;
+//         const img = card.querySelector("img");
+        
+//         if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
+//             card.classList.add("flipped");
+//             img.src = `img/${randomNum}.gif`;
+//             flippedCards.push(card);
+            
+//             if (flippedCards.length === 2) {
+//                 const firstCardImg = flippedCards[0].querySelector("img").src;
+//                 const secondCardImg = flippedCards[1].querySelector("img").src;
+                
+//                 if (firstCardImg === secondCardImg) {
+//                     flippedCards.forEach(card => {
+//                         card.removeEventListener("click");
+//                     });
+//                     flippedCards = [];
+//                 } else {
+//                     setTimeout(() => {
+//                         flippedCards.forEach(card => {
+//                             card.classList.remove("flipped");
+//                             card.querySelector("img").src = "img/back.png";
+//                         });
+//                         flippedCards = [];
+//                     }, 1000);
+//                 }
+//             }
+//         } else if (card.classList.contains("flipped")) {
+//             card.classList.remove("flipped");
+//             img.src = "img/back.png";
+//             flippedCards.splice(flippedCards.indexOf(card), 1);
+//         }
+//     });
+// });
