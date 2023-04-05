@@ -41,12 +41,15 @@ function jogo(){
             const img = card.querySelector("img");
                 
             if (cartasViradas.length < 2 && !card.classList.contains("flipped")) {
-            if (!firstCard) {
+            if (!firstCard) { // se ainda nao existir primeira card
                 firstCard = card;
                 card.classList.add("flipped");
-                // Adiciona imagem aleatória apenas se a carta ainda não foi revelada antes
-                if (!card.dataset.img) {
-                    card.dataset.img = `img/${Math.floor(Math.random() * 8) + 1}.gif`;
+                if (!card.dataset.img) { // confere se a card ja foi virada
+                    let num = Math.floor(Math.random() * numCartas)
+                    if (num == 0){
+                        num = 1;
+                    }
+                    card.dataset.img = `img/${num}.gif`; 
                 }
                 img.src = card.dataset.img;
                 img.setAttribute('data-test', 'face-up-image');
@@ -56,8 +59,12 @@ function jogo(){
                 secondCard = card;
                 card.classList.add("flipped");
                 // Adiciona imagem aleatória apenas se a carta ainda não foi revelada antes
-                if (!card.dataset.img) {
-                    card.dataset.img = `img/${Math.floor(Math.random() * 8) + 1}.gif`;
+                if (!card.dataset.img) { // confere se a card ja foi virada
+                    let num = Math.floor(Math.random() * numCartas)
+                    if (num == 0){
+                        num = 1;
+                    }
+                    card.dataset.img = `img/${num}.gif`; 
                 }
                 img.src = card.dataset.img;
                 img.setAttribute('data-test', 'face-up-image');
