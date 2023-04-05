@@ -58,7 +58,6 @@ function jogo(){
             else if (!secondCard) {
                 secondCard = card;
                 card.classList.add("flipped");
-                // Adiciona imagem aleatória apenas se a carta ainda não foi revelada antes
                 if (!card.dataset.img) { // confere se a card ja foi virada
                     let num = Math.floor(Math.random() * numCartas)
                     if (num == 0){
@@ -75,10 +74,10 @@ function jogo(){
                 const firstCardImg = cartasViradas[0].querySelector("img").src;
                 const secondCardImg = cartasViradas[1].querySelector("img").src;
                         
-                if (firstCardImg == secondCardImg) {
+                if (firstCardImg == secondCardImg) { // ganhou
                     setTimeout(() => {
                         reiniciarJogo;
-                    }, 1000);
+                    }, 1000); // espera 1sg
                     alert("AEEE");
                     cartasViradas.forEach(card => {
                         card.removeEventListener("click");
@@ -86,7 +85,7 @@ function jogo(){
                     firstCard = null;
                     secondCard = null;
                     cartasViradas = [];
-                } else {
+                } else { // cartas nao iguais
                     setTimeout(() => {
                         cartasViradas.forEach(card => {
                         card.classList.remove("flipped");
@@ -95,13 +94,13 @@ function jogo(){
                         cartasViradas = [];
                         firstCard = null;
                         secondCard = null;
-                    }, 1000);
+                    }, 1000); // espera 1sg
                 }
             }
-            } else if (card.classList.contains("flipped")) {
-            card.classList.remove("flipped");
-            img.src = "img/back.png";
-            cartasViradas.splice(cartasViradas.indexOf(card), 1);
+            }else if (card.classList.contains("flipped")) {
+                card.classList.remove("flipped");
+                img.src = "img/back.png";
+                cartasViradas.splice(cartasViradas.indexOf(card), 1);
             }
         });
     });
