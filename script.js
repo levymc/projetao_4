@@ -11,8 +11,14 @@ function reiniciarJogo() {
     cards.forEach(card => card.remove());
     jogo()
 }
-
 function jogo(){
+    let time = 0;
+    let tempo = function(){
+        time++
+        console.log(time);
+    }
+    let intervalId = setInterval(tempo, 1000);
+
     btnRestart.style.opacity = "1";
     let numCartas;
     do {
@@ -77,15 +83,15 @@ function jogo(){
                 const secondCardImg = cartasViradas[1].querySelector("img").src;
                         
                 if (firstCardImg == secondCardImg) { // ganhou
-                    
+                    clearInterval(intervalId);
                     alert(`Você ganhou em ${numJogadas/2} jogadas!`);
                     setTimeout(() => {
                         reiniciarJogo();
                     }, 1000); // espera 1sg
                     // alert("AEEE");
-                    cartasViradas.forEach(card => {
-                        card.removeEventListener("click");
-                    });
+                    // cartasViradas.forEach(card => {
+                    //     card.removeEventListener("click");
+                    // });
                     firstCard = null;
                     secondCard = null;
                     cartasViradas = [];
