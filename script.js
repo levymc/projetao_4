@@ -47,9 +47,9 @@ function jogo(){
                 firstCard = card;
                 card.classList.add("flipped");
                 if (!card.dataset.img) { // confere se a card ja foi virada
-                    let num = Math.floor(Math.random() * numCartas)
+                    let num = Math.floor(Math.random() * numCartas) + 1
                     if (num == 0){
-                        num = 1;
+                        num = Math.floor(Math.random() * numCartas) + 1;
                     }
                     card.dataset.img = `img/${num}.gif`; 
                 }
@@ -61,9 +61,9 @@ function jogo(){
                 secondCard = card;
                 card.classList.add("flipped");
                 if (!card.dataset.img) { // confere se a card ja foi virada
-                    let num = Math.floor(Math.random() * numCartas)
+                    let num = Math.floor(Math.random() * numCartas)+ 1
                     if (num == 0){
-                        num = 1;
+                        num = Math.floor(Math.random() * numCartas) + 1;
                     }
                     card.dataset.img = `img/${num}.gif`; 
                 }
