@@ -111,13 +111,12 @@ function jogo(){
                     if (firstCardImg == secondCardImg) { // ganhou
                         // clearInterval(intervalId);
                         alert(`Você ganhou em ${numJogadas/2} jogadas!`);
-                        // setTimeout(() => {
-                        //     reiniciarJogo();
-                        // }, 1000); // espera 1sg
-                        // alert("AEEE");
-                        // cartasViradas.forEach(card => {
-                        //     card.removeEventListener("click");
-                        // });
+                        setTimeout(() => {
+                            reiniciarJogo();
+                        }, 1000); // espera 1sg
+                        cartasViradas.forEach(card => {
+                            card.removeEventListener("click");
+                        });
                         firstCard = null;
                         secondCard = null;
                         cartasViradas = [];
