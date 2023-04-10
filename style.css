@@ -18,6 +18,7 @@ html{
 }
 #btn-restart{
     opacity: 0;
+    display:none;
     position: fixed;
     top: 6em;
     left: 1%;
