@@ -13,7 +13,7 @@ function reiniciarJogo() {
 }
 
 function confere(){
-    let x = prompt("Deseja continuar jogando? Caso queira digite 'sim', caso contrário digite 'não'");
+    let x = prompt("Deseja continuar jogando? Caso queira digite 'sim', caso contrário digite 'não'")
     if (x == 'sim'){
         reiniciarJogo();
     }else if(x == 'não'){
@@ -24,7 +24,9 @@ function confere(){
     }
 }
 
+
 function jogo(){
+    let paresEncontrados = 0;
     let time = 0;
     let tempo = function(){
         time++
@@ -123,16 +125,19 @@ function jogo(){
                             
                     if (firstCardImg == secondCardImg) { // ganhou
                         // clearInterval(intervalId);
-                        alert(`Você ganhou em ${numJogadas/2} jogadas!`);
-                        setTimeout(() => {
-                            confere();
-                        }, 1000); // espera 1sg
-                        cartasViradas.forEach(card => {
-                            card.removeEventListener("click");
-                        });
-                        firstCard = null;
-                        secondCard = null;
-                        cartasViradas = [];
+                        paresEncontrados++;
+                        if (paresEncontrados === numCartas/2) {
+                            alert(`Você ganhou em ${numJogadas/2} jogadas!`);
+                            setTimeout(() => {
+                                confere();
+                            }, 1000); // espera 1sg
+                            cartasViradas.forEach(card => {
+                                card.removeEventListener("click");
+                            });
+                            firstCard = null;
+                            secondCard = null;
+                            cartasViradas = [];
+                          }
                     } else { // cartas nao iguais
                         setTimeout(() => {
                             cartasViradas.forEach(card => {
@@ -153,46 +158,3 @@ function jogo(){
         });
     });
 }
-
-
-// const cards = document.querySelectorAll('.card'); // Seleciona todos os elementos com a classe "card"
-// numCartas = prompt("Com quantas cartas você quer jogar? Insira um número par entre 4 e 14:");
-// let flippedCards = [];
-
-// cards.forEach(card => {
-//     card.addEventListener('click', () => {
-        
-//         const randomNum = Math.floor(Math.random() * numCartas/2) + 1;
-//         const img = card.querySelector("img");
-        
-//         if (flippedCards.length < 2 && !card.classList.contains("flipped")) {
-//             card.classList.add("flipped");
-//             img.src = `img/${randomNum}.gif`;
-//             flippedCards.push(card);
-            
-//             if (flippedCards.length === 2) {
-//                 const firstCardImg = flippedCards[0].querySelector("img").src;
-//                 const secondCardImg = flippedCards[1].querySelector("img").src;
-                
-//                 if (firstCardImg === secondCardImg) {
-//                     flippedCards.forEach(card => {
-//                         card.removeEventListener("click");
-//                     });
-//                     flippedCards = [];
-//                 } else {
-//                     setTimeout(() => {
-//                         flippedCards.forEach(card => {
-//                             card.classList.remove("flipped");
-//                             card.querySelector("img").src = "img/back.png";
-//                         });
-//                         flippedCards = [];
-//                     }, 1000);
-//                 }
-//             }
-//         } else if (card.classList.contains("flipped")) {
-//             card.classList.remove("flipped");
-//             img.src = "img/back.png";
-//             flippedCards.splice(flippedCards.indexOf(card), 1);
-//         }
-//     });
-// });
