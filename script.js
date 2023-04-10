@@ -78,7 +78,7 @@ function jogo(){
             const img = card.querySelector("img");
             numJogadas++;
                 
-            if (cartasViradas.length < 2 && !card.classList.contains("flipped")) {
+            if (cartasViradas.length < 2 ) { //&& !card.classList.contains("flipped")
                 if (!firstCard) { // se ainda nao existir primeira card
                     firstCard = card;
                     card.classList.add("flipped");
@@ -131,13 +131,14 @@ function jogo(){
                             setTimeout(() => {
                                 confere();
                             }, 1000); // espera 1sg
-                            cartasViradas.forEach(card => {
-                                card.removeEventListener("click");
-                            });
-                            firstCard = null;
-                            secondCard = null;
-                            cartasViradas = [];
-                          }
+                        }
+                        // cartasViradas.forEach(card => {
+                        //     card.removeEventListener("click");
+                        // });
+                        firstCard = null;
+                        secondCard = null;
+                        cartasViradas = [];
+                          
                     } else { // cartas nao iguais
                         setTimeout(() => {
                             cartasViradas.forEach(card => {
