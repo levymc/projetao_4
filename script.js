@@ -11,6 +11,19 @@ function reiniciarJogo() {
     cards.forEach(card => card.remove());
     jogo()
 }
+
+function confere(){
+    let x = prompt("Deseja continuar jogando? Caso queira digite 'sim', caso contrário digite 'não'");
+    if (x == 'sim'){
+        reiniciarJogo();
+    }else if(x == 'não'){
+        
+    }else{
+        alert("Opção inválida");
+        confere();
+    }
+}
+
 function jogo(){
     let time = 0;
     let tempo = function(){
@@ -112,7 +125,7 @@ function jogo(){
                         // clearInterval(intervalId);
                         alert(`Você ganhou em ${numJogadas/2} jogadas!`);
                         setTimeout(() => {
-                            reiniciarJogo();
+                            confere();
                         }, 1000); // espera 1sg
                         cartasViradas.forEach(card => {
                             card.removeEventListener("click");
