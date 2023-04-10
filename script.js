@@ -32,7 +32,6 @@ function jogo(){
         time++
         console.log(time);
     }
-    
 
     btnRestart.style.opacity = "1";
     let numCartas;
@@ -104,13 +103,12 @@ function jogo(){
                     if (!card.dataset.img) { // confere se a card ja foi virada
                         console.log("Jogadas", numJogadas);
                         let num = listaNumeros[0]
-                        card.dataset.img = `img/${num}.gif`; // Lógica errada... ele deve buscar umaimg entre 1-8.gif e salvar a escolhida em uma lista com chave e valor, salvando a  frequencia que ela foi alocada
+                        card.dataset.img = `img/${num}.gif`;
                         console.log(num);
                         contPares++
                         listaNumeros.shift();
                         console.log(listaNumeros)
                         if (contPares == 1){
-                            
                             contPares = 0;
                         }
                     }
@@ -124,7 +122,6 @@ function jogo(){
                     const secondCardImg = cartasViradas[1].querySelector("img").src;
                             
                     if (firstCardImg == secondCardImg) { // ganhou
-                        // clearInterval(intervalId);
                         paresEncontrados++;
                         if (paresEncontrados === numCartas/2) {
                             alert(`Você ganhou em ${numJogadas/2} jogadas!`);
@@ -132,9 +129,6 @@ function jogo(){
                                 confere();
                             }, 1000); // espera 1sg
                         }
-                        // cartasViradas.forEach(card => {
-                        //     card.removeEventListener("click");
-                        // });
                         firstCard = null;
                         secondCard = null;
                         cartasViradas = [];
